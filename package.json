@@ -1,0 +1,17 @@
+{
+  "name": "banner_ads_animado_01",
+  "version": "1.0.0",
+  "description": "Banner ads animado usando apenas Javascript Nativo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "css",
+    "html",
+    "dom"
+  ],
+  "author": "Samuel Pereira da Silva",
+  "license": "ISC"
+}

@@ -1,0 +1,457 @@
+@font-face {
+  font-family: Rubik;
+  src: url("./assets/Rubik.ttf");
+}
+
+:root {
+  --yellow: #fcda16;
+}
+
+* {
+  font-family: "Rubik";
+  box-sizing: border-box;
+}
+
+.slide-in {
+  z-index: 1;
+}
+
+.banner {
+  width: 300px;
+  height: 600px;
+  background-color: #fff;
+  position: relative;
+  border: 1px solid;
+  overflow: hidden;
+}
+
+.banner:before {
+  content: "";
+  background-color: #fcda16;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  animation: background-animation 2.5s forwards;
+}
+
+.banner-header {
+  position: absolute;
+  left: 32px;
+  opacity: 0;
+  animation: logo-animation 1s forwards;
+  animation-delay: 0.8s;
+  z-index: 2;
+}
+
+.banner > main,
+.banners,
+.banner-item {
+  width: 100%;
+  height: 100%;
+}
+
+.banners {
+  position: relative;
+}
+
+.banner-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transform: translateX(300px);
+}
+
+.slide-in.banner-item {
+  animation: banner-item-animation 1s forwards;
+}
+
+.slide-in .banner-image {
+  height: 600px;
+  width: fit-content;
+  animation: banner-image-animation 5s forwards;
+}
+
+.place {
+  position: absolute;
+  bottom: 180px;
+  left: 32px;
+  z-index: 1;
+}
+
+.country {
+  background: #fff;
+  font-size: 15px;
+  color: #000000;
+  font-weight: 400;
+  margin: 0;
+  width: fit-content;
+  overflow: hidden;
+  max-width: 0;
+  padding: 0;
+  position: relative;
+  height: 17px;
+  line-height: 15px;
+}
+
+.country span {
+  display: block;
+}
+
+.slide-in .country {
+  animation: country-animation 0.5s forwards;
+  animation-delay: 1s;
+}
+
+.slide-out .country span {
+  animation: country-text-animation-out 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+.slide-out .country {
+  max-width: 60px;
+  padding: 2px 4px;
+  animation: country-animation-out 0.5s forwards;
+  animation-delay: 0.8s;
+}
+
+.city {
+  background-color: var(--yellow);
+  margin: 0;
+  font-size: 45px;
+  color: #000000;
+  font-weight: 400;
+  padding: 0;
+  max-width: 0;
+  width: fit-content;
+  overflow: hidden;
+  height: 46px;
+  line-height: 45px;
+}
+
+.city span {
+  display: block;
+  transform: translateY(100%);
+}
+
+.slide-in .city {
+  animation: city-animation 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+.slide-in .city > span {
+  animation: city-text-animation 0.5s forwards;
+  animation-delay: 2s;
+}
+
+.slide-out .city {
+  max-width: 160px;
+  padding: 2px 4px;
+  animation: city-animation-out 0.5s forwards;
+  animation-delay: 1s;
+}
+
+.slide-out .city > span {
+  transform: translateY(0);
+  animation: city-text-animation-out 0.5s forwards;
+  animation-delay: 1s;
+}
+
+.price {
+  position: absolute;
+  bottom: 115px;
+  left: 90px;
+  color: var(--yellow);
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.slide-in .price {
+  animation: price-animation 0.5s forwards;
+  animation-delay: 2s;
+  transform: translateY(50px);
+}
+
+.slide-out .price {
+  opacity: 1;
+  transform: translateY(0);
+  animation: price-animation-out 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+.price label {
+  font-size: 15px;
+  font-weight: 400;
+  display: block;
+}
+
+.price span {
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.cta {
+  position: absolute;
+  bottom: 70px;
+  left: 35px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.cta hr {
+  height: 0;
+  width: 74px;
+  height: 3px;
+  margin: 0;
+  z-index: 1;
+  margin-right: -15px;
+  display: block;
+  border: none;
+}
+
+.cta hr:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  background: var(--yellow);
+  animation: cta-hr-animation 0.5s forwards;
+  animation-delay: 2s;
+}
+
+.cta button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 43px;
+  transform: translateX(210px);
+  overflow: hidden;
+  animation: cta-button-animation 0.5s forwards;
+  animation-delay: 2s;
+}
+
+.footer {
+  position: absolute;
+  animation: footer-animation 0.5s forwards;
+  animation-delay: 2s;
+}
+
+.footer ul {
+  margin: 0;
+}
+
+.footer li {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: #fff;
+  margin-right: 4px;
+}
+
+.footer li:last-child {
+  margin-right: 0;
+}
+
+.footer .active {
+  background-color: var(--yellow);
+}
+
+@keyframes banner-item-animation {
+  0% {
+    opacity: 1;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes country-animation {
+  0% {
+    max-width: 0;
+    padding: 0;
+  }
+  10% {
+    padding: 2px 4px;
+  }
+  100% {
+    max-width: 60px;
+    padding: 2px 4px;
+  }
+}
+
+@keyframes country-animation-out {
+  0% {
+    max-width: 60px;
+    padding: 2px 4px;
+  }
+  100% {
+    max-width: 0;
+    padding: 0;
+  }
+}
+
+@keyframes country-text-animation-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes city-animation {
+  0% {
+    max-width: 0;
+    padding: 0;
+  }
+  10% {
+    padding: 2px 4px;
+  }
+  100% {
+    max-width: 160px;
+    padding: 2px 4px;
+  }
+}
+
+@keyframes city-text-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes city-animation-out {
+  100% {
+    max-width: 0;
+    padding: 0;
+  }
+  90% {
+    padding: 2px 4px;
+  }
+  0% {
+    max-width: 160px;
+    padding: 2px 4px;
+  }
+}
+
+@keyframes city-text-animation-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes banner-image-animation {
+  0% {
+    height: 600px;
+  }
+  100% {
+    height: 700px;
+  }
+}
+
+@keyframes background-animation {
+  0% {
+    top: 100%;
+  }
+  25% {
+    top: 0;
+  }
+  75% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes logo-animation {
+  0% {
+    left: -34px;
+    top: 50%;
+    opacity: 1;
+  }
+  50% {
+    left: 32px;
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 32px;
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes footer-animation {
+  0% {
+    bottom: -20px;
+  }
+
+  100% {
+    bottom: 20px;
+  }
+}
+
+@keyframes cta-hr-animation {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 74px;
+  }
+}
+
+@keyframes cta-button-animation {
+  0% {
+    transform: translateX(210px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes price-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes price-animation-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(-50);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
